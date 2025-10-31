@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Templates — Streamplate by japh</title>
+  <meta name="description" content="Template store — Streamplate." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/store.js"></script>
+</head>
+<body class="bg-white text-slate-800">
+
+  <header class="border-b bg-white">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="font-semibold text-lg">Streamplate <span class="text-sky-600">by japh</span></a>
+      <nav class="space-x-4 text-sm">
+        <a href="templates.html" class="hover:underline">Templates</a>
+        <a href="about.html" class="hover:underline">About</a>
+        <a href="contact.html" class="hover:underline">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-12">
+    <div class="flex items-center justify-between">
+      <div>
+        <h1 class="text-3xl font-bold">Template Store</h1>
+        <p class="mt-2 text-slate-600">Ready-made templates you can buy and edit on your tablet.</p>
+      </div>
+      <div class="text-sm text-slate-600">Total: <span id="tpl-count">—</span></div>
+    </div>
+
+    <div class="mt-8 grid gap-6 md:grid-cols-3" id="template-store">
+      <!-- Template cards injected by assets/js/store.js -->
+      <p class="text-slate-500">Loading templates…</p>
+    </div>
+  </main>
+
+  <footer class="border-t">
+    <div class="max-w-6xl mx-auto px-6 py-8 text-sm">© <span id="year-2"></span> Streamplate by japh</div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

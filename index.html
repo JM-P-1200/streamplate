@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Streamplate by Japh — Templates & Portfolio</title>
+  <meta name="description" content="Streamplate — templates and portfolio by Japh. Tablet-friendly templates you can buy and customize." />
+
+  <!-- Tailwind CDN (no build) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Alpine (optional small interactivity) -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-white text-slate-800 antialiased">
+
+  <!-- Header -->
+  <header class="border-b bg-white">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="font-semibold text-lg">Streamplate <span class="text-sky-600">by japh</span></a>
+      <nav class="space-x-4 text-sm">
+        <a href="templates.html" class="hover:underline">Templates</a>
+        <a href="about.html" class="hover:underline">About</a>
+        <a href="contact.html" class="hover:underline">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main class="max-w-6xl mx-auto px-6 py-16">
+    <section class="grid gap-8 md:grid-cols-2 items-center">
+      <div>
+        <h1 class="text-4xl font-extrabold leading-tight">Build, sell, and showcase beautiful website templates — fast.</h1>
+        <p class="mt-4 text-lg text-slate-600">Streamplate is a portfolio and template shop by Japh. Templates are lightweight, easy to customize, and tablet-editable.</p>
+        <div class="mt-6 flex gap-3">
+          <a href="templates.html" class="px-4 py-2 rounded-lg bg-sky-600 text-white">Browse Templates</a>
+          <a href="contact.html" class="px-4 py-2 rounded-lg border">Work with me</a>
+        </div>
+      </div>
+
+      <div class="rounded-xl p-6 bg-gradient-to-br from-slate-50 to-white border">
+        <img src="assets/img/preview-hero.png" alt="preview" class="w-full rounded" />
+      </div>
+    </section>
+
+    <!-- Featured projects -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold">Featured Templates</h2>
+      <div class="mt-6 grid gap-6 md:grid-cols-3">
+        <!-- replicate these cards or use templates.json later -->
+        <article class="p-4 border rounded-lg">
+          <h3 class="font-semibold">Startup Launch</h3>
+          <p class="mt-2 text-sm text-slate-600">Landing page template for product launches.</p>
+          <div class="mt-4 text-sm">
+            <a href="templates.html#tpl-001" class="underline">View</a>
+          </div>
+        </article>
+
+        <article class="p-4 border rounded-lg">
+          <h3 class="font-semibold">Creator Portfolio</h3>
+          <p class="mt-2 text-sm text-slate-600">Minimal portfolio template for freelancers.</p>
+          <div class="mt-4 text-sm">
+            <a href="templates.html#tpl-002" class="underline">View</a>
+          </div>
+        </article>
+
+        <article class="p-4 border rounded-lg">
+          <h3 class="font-semibold">Product Showcase</h3>
+          <p class="mt-2 text-sm text-slate-600">Simple product landing with demo area.</p>
+          <div class="mt-4 text-sm">
+            <a href="templates.html" class="underline">Browse</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t">
+    <div class="max-w-6xl mx-auto px-6 py-8 flex justify-between text-sm">
+      <div>© <span id="year"></span> Streamplate by japh</div>
+      <div class="space-x-3">
+        <a href="#" class="hover:underline">Twitter</a>
+        <a href="#" class="hover:underline">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

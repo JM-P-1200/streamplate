@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Template — Streamplate</title>
+  <meta name="description" content="Template details" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/store.js"></script>
+</head>
+<body class="bg-white text-slate-800">
+
+  <header class="border-b">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="font-semibold text-lg">Streamplate <span class="text-sky-600">by japh</span></a>
+      <nav class="space-x-4 text-sm">
+        <a href="templates.html" class="hover:underline">Templates</a>
+        <a href="about.html" class="hover:underline">About</a>
+        <a href="contact.html" class="hover:underline">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-12">
+    <div id="template-detail">
+      <p class="text-slate-500">Loading template…</p>
+    </div>
+  </main>
+
+  <footer class="border-t">
+    <div class="max-w-6xl mx-auto px-6 py-8 text-sm">© <span id="year-3"></span> Streamplate by japh</div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+
+  <!-- small inline script to ask store.js to render detail view -->
+  <script>
+    // When store.js loads it will detect if ?id= is present and render detail.
+    // No extra code required here beyond including store.js
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+collections:
+  - name: "templates"
+    label: "Templates"
+    folder: "data"
+    create: true
+    slug: "{{slug}}"
+    format: "json"
+    fields:
+      - { name: "id", label: "ID" }
+      - { name: "name", label: "Name" }
+      - { name: "description", label: "Short description" }
+      - { name: "longDescription", label: "Long description", widget: "markdown" }
+      - { name: "thumbnail", label: "Thumbnail", widget: "image" }
+      - { name: "demo", label: "Demo URL" }
+      - { name: "buy", label: "Buy URL" }
+      - { name: "price", label: "Price" }
+      - { name: "tags", label: "Tags", widget: "list" }

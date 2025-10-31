@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Streamplate by japh</title>
+  <meta name="description" content="Contact Streamplate" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-white text-slate-800">
+
+  <header class="border-b">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="font-semibold text-lg">Streamplate <span class="text-sky-600">by japh</span></a>
+      <nav class="space-x-4 text-sm">
+        <a href="templates.html" class="hover:underline">Templates</a>
+        <a href="about.html" class="hover:underline">About</a>
+        <a href="contact.html" class="hover:underline">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-6 py-12">
+    <h1 class="text-2xl font-bold">Contact</h1>
+    <p class="mt-2 text-slate-600">Have a question or want a custom template? Send a message.</p>
+
+    <form name="contact" method="POST" data-netlify="true" class="mt-6 space-y-4">
+      <input type="hidden" name="form-name" value="contact">
+      <div>
+        <label class="block text-sm">Name</label>
+        <input name="name" required class="mt-1 w-full border rounded px-3 py-2">
+      </div>
+      <div>
+        <label class="block text-sm">Email</label>
+        <input type="email" name="email" required class="mt-1 w-full border rounded px-3 py-2">
+      </div>
+      <div>
+        <label class="block text-sm">Message</label>
+        <textarea name="message" rows="6" required class="mt-1 w-full border rounded px-3 py-2"></textarea>
+      </div>
+      <div>
+        <button type="submit" class="px-4 py-2 rounded bg-sky-600 text-white">Send</button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="border-t">
+    <div class="max-w-6xl mx-auto px-6 py-8 text-sm">© <span id="year-5"></span> Streamplate by japh</div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

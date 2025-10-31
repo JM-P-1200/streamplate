@@ -1,0 +1,24 @@
+[
+  {
+    "id": "tpl-001",
+    "name": "Startup Launch Template",
+    "description": "Clean and responsive landing page perfect for startups.",
+    "longDescription": "A multi-section landing page with hero, features, pricing and contact sections. Minimal Tailwind markup for easy edits.",
+    "thumbnail": "assets/img/templates/startup-launch.png",
+    "demo": "https://demo.streamplate.dev/startup-launch",
+    "buy": "https://gumroad.com/startup-launch",
+    "price": "15",
+    "tags": ["landing", "startup", "tailwind"]
+  },
+  {
+    "id": "tpl-002",
+    "name": "Creator Portfolio",
+    "description": "Minimal personal portfolio template for freelancers.",
+    "longDescription": "Simple project gallery, about, and contact. Tablet-friendly editable structure.",
+    "thumbnail": "assets/img/templates/creator-portfolio.png",
+    "demo": "https://demo.streamplate.dev/creator-portfolio",
+    "buy": "https://gumroad.com/creator-portfolio",
+    "price": "12",
+    "tags": ["portfolio", "minimal"]
+  }
+]
