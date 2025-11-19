@@ -26,9 +26,17 @@
     <h1 class="text-2xl font-bold">Contact</h1>
     <p class="mt-2 text-slate-600">Have a question or want a custom template? Send a message.</p>
 
-    <form name="contact" method="POST" data-netlify="true" class="mt-6 space-y-4">
+    <form name="contact" method="POST" data-netlify="true" class="mt-6 space-y-4" netlify>
       <input type="hidden" name="form-name" value="contact">
       <div>
+        
+        <!-- Honeypot -->
+      <p style+"display:none;">
+          <label> Don't fill this if you're human:
+            <input name="bot-field">
+          </label>
+      </p>
+        
         <label class="block text-sm">Name</label>
         <input name="name" required class="mt-1 w-full border rounded px-3 py-2">
       </div>
