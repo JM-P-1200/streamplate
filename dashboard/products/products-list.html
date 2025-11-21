@@ -45,19 +45,22 @@ const STORAGE_KEY = "streamplate_products_v1";
 
 function loadSeedAndInit() {
   // If localStorage empty, load from JSON seed
-  if (!localStorage.getItem(STORAGE_KEY)) {
-    $.getJSON("products-data.json", function(seed){
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(seed));
-      renderProducts();
-    });
+  fetch(API_URL + "/products")
+  .then(res => res.json())
+  .then(data => {
+      renderProducts(data)
+  });
   } else {
     renderProducts();
   }
 }
 
 function getProducts() {
-  const raw = localStorage.getItem(STORAGE_KEY);
-  return raw ? JSON.parse(raw) : [];
+  fetch(API_URL + "/products")
+  .then(res => res.json())
+  .then(data => {
+      renderProducts(data)
+  });
 }
 
 function saveProducts(products) {
@@ -66,7 +69,7 @@ function saveProducts(products) {
 
 /* ===== Rendering ===== */
 function renderProducts() {
-  const products = getProducts();
+  ProductAPI.list().then(products => render(products));
   if (products.length === 0) {
     $("#productsBody").html('<tr><td colspan="5" class="text-center">No products</td></tr>');
     return;
@@ -99,7 +102,7 @@ function deleteProduct(id) {
   let ps = getProducts();
   ps = ps.filter(x => x.id !== id);
   saveProducts(ps);
-  renderProducts();
+  ProductAPI.list().then(products => render(products));
 }
 
 /* Reset seed (useful during testing) */

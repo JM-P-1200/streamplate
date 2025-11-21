@@ -89,9 +89,10 @@ $("#editForm").on("submit", function(e){
   ps[idx].image = $("#image").val().trim() || "https://via.placeholder.com/200";
   ps[idx].description = $("#description").val().trim();
 
-  saveProducts(ps);
-  alert("Product updated.");
-  window.location.href = "products-list.html";
+  ProductAPI.update(id, data).then(() => {
+  alert("Updated");
+  location.href = "products-list.html";
+});
 });
 
 $(document).ready(loadProductToForm);

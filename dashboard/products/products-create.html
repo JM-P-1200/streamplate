@@ -64,7 +64,10 @@
 
 <script>
     function saveProduct() {
-        alert("This will save product after backend is added.");
+    ProductAPI.create(product).then(() => {
+  alert("Product saved");
+  location.href = "products-list.html";
+  });
     }
 </script>
 
