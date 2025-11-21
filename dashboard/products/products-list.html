@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Products - Streamplate</title>
+
+  <link id="themeStylesheet" rel="stylesheet" href="../css/app-light.css">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+  <div class="content container-fluid">
+    <div class="page-header d-flex justify-content-between align-items-center">
+      <h3 class="page-title">Products</h3>
+      <div>
+        <a href="products-create.html" class="btn btn-primary"><i class="fe fe-plus"></i> Add Product</a>
+        <button id="resetBtn" class="btn btn-outline-secondary">Reset (seed)</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <table class="table table-bordered" id="productsTable">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Category</th>
+              <th width="170">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="productsBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../js/jquery.min.js"></script>
+<script>
+/* ===== Helper functions ===== */
+const STORAGE_KEY = "streamplate_products_v1";
+
+function loadSeedAndInit() {
+  // If localStorage empty, load from JSON seed
+  if (!localStorage.getItem(STORAGE_KEY)) {
+    $.getJSON("products-data.json", function(seed){
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(seed));
+      renderProducts();
+    });
+  } else {
+    renderProducts();
+  }
+}
+
+function getProducts() {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  return raw ? JSON.parse(raw) : [];
+}
+
+function saveProducts(products) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+}
+
+/* ===== Rendering ===== */
+function renderProducts() {
+  const products = getProducts();
+  if (products.length === 0) {
+    $("#productsBody").html('<tr><td colspan="5" class="text-center">No products</td></tr>');
+    return;
+  }
+  const rows = products.map(p => `
+    <tr>
+      <td><img src="${p.image}" width="60" alt="${escapeHtml(p.name)}"></td>
+      <td>${escapeHtml(p.name)}</td>
+      <td>$${Number(p.price).toFixed(2)}</td>
+      <td>${escapeHtml(p.category)}</td>
+      <td>
+        <a href="products-edit.html?id=${p.id}" class="btn btn-sm btn-warning">Edit</a>
+        <button class="btn btn-sm btn-danger" onclick="deleteProduct(${p.id})">Delete</button>
+      </td>
+    </tr>
+  `).join("");
+  $("#productsBody").html(rows);
+}
+
+function escapeHtml(s){
+  if(!s) return "";
+  return String(s).replace(/[&<>"'`=\/]/g, function (c) {
+    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','`':'&#x60;','=':'&#x3D;','/':'&#x2F;'})[c];
+  });
+}
+
+/* ===== CRUD actions ===== */
+function deleteProduct(id) {
+  if (!confirm("Delete this product?")) return;
+  let ps = getProducts();
+  ps = ps.filter(x => x.id !== id);
+  saveProducts(ps);
+  renderProducts();
+}
+
+/* Reset seed (useful during testing) */
+document.getElementById("resetBtn").addEventListener("click", function(){
+  localStorage.removeItem(STORAGE_KEY);
+  loadSeedAndInit();
+});
+
+/* initialize */
+$(document).ready(loadSeedAndInit);
+
+</script>
+</body>
+</html>

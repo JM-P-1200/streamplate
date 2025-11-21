@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Streamplate UI Kit",
+    "price": 49,
+    "category": "Template",
+    "image": "https://via.placeholder.com/200",
+    "description": "A clean UI kit for dashboards and admin panels."
+  },
+  {
+    "id": 2,
+    "name": "Landing Page Pack",
+    "price": 35,
+    "category": "Landing Page",
+    "image": "https://via.placeholder.com/200",
+    "description": "Modern landing pages for SaaS and portfolios."
+  }
+]
