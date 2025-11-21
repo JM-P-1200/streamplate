@@ -22,8 +22,7 @@
     <!-- Date Range Picker CSS -->
     <link rel="stylesheet" href="css/daterangepicker.css">
     <!-- App CSS -->
-    <link rel="stylesheet" href="css/app-light.css" id="lightTheme">
-    <link rel="stylesheet" href="css/app-dark.css" id="darkTheme" disabled>
+    <link id="themeStylesheet" rel="stylesheet" href="css/app-light.css">
   </head>
   <body class="vertical  light  ">
     <div class="wrapper">
@@ -31,6 +30,9 @@
         <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">
           <i class="fe fe-menu navbar-toggler-icon"></i>
         </button>
+        <div class="theme-toggle" style="cursor:pointer; padding:10px;">
+           <i class="fe fe-moon" id="themeIcon"></i>
+        </div>
         <form class="form-inline mr-auto searchform text-muted">
           <input class="form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted" type="search" placeholder="Type something..." aria-label="Search">
         </form>
@@ -1090,5 +1092,35 @@
       gtag('js', new Date());
       gtag('config', 'UA-56159088-1');
     </script>
+    <script>
+    // Detect saved preference
+    const savedTheme = localStorage.getItem("theme") || "light";
+    const themeStylesheet = document.getElementById("themeStylesheet");
+    const themeIcon = document.getElementById("themeIcon");
+
+    function setTheme(theme) {
+        if (theme === "dark") {
+            themeStylesheet.href = "css/app-dark.css";
+            themeIcon.classList.remove("fe-sun");
+            themeIcon.classList.add("fe-moon");
+        } else {
+            themeStylesheet.href = "css/app-light.css";
+            themeIcon.classList.remove("fe-moon");
+            themeIcon.classList.add("fe-sun");
+        }
+        localStorage.setItem("theme", theme);
+    }
+
+    // Load saved theme
+    setTheme(savedTheme);
+
+    // Toggle on click
+    themeIcon.addEventListener("click", () => {
+        const current = localStorage.getItem("theme");
+        const next = current === "light" ? "dark" : "light";
+        setTheme(next);
+    });
+</script>
+
   </body>
 </html>
